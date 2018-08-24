@@ -4,13 +4,15 @@ import './css/stylesheet.css';
 import registerServiceWorker from './registerServiceWorker';
 
 let quotesData;
+let colors = ['#16a085', '#27ae60', '#2c3e50', '#f39c12', '#e74c3c', '#9b59b6', '#FB6964', '#342224', "#472E32", "#BDBB99", "#77B1A9", "#73A857"];
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      author: "Author",
-      quote: "Quote"
+      quote: "Click the button, get a better quote",
+      author: "joldie",
+      color: '#009688'
     }
     this.displayNewQoute = this.displayNewQuote.bind(this);
   }
@@ -21,6 +23,11 @@ class App extends Component {
     getListQuotes();
   }
   render() {
+
+    let bgColorStyle = {
+      backgroundColor: this.state.color
+    };
+
     return (
       <div id="wrapper">
         <div id="quote-box">
@@ -31,10 +38,10 @@ class App extends Component {
             - <span id="author">{this.state.author}</span>
           </div>
           <div className="buttons">
-            <a className="button" id="tweet-quote" title="Tweet this quote" target="_blank">
+            <a className="button" id="tweet-quote" title="Tweet this quote" target="_blank" style={bgColorStyle}>
               <i className="fab fa-twitter"></i>
             </a>
-            <button className="button" id="new-quote" onClick={this.displayNewQoute}>New quote</button>
+            <button className="button" id="new-quote" onClick={this.displayNewQoute} style={bgColorStyle}>New quote</button>
           </div>
         </div>
         <footer>
@@ -58,7 +65,6 @@ function getListQuotes() {
     if (response.ok) {
       response.json().then(json => {
         quotesData = json;
-        getQuote();
       });
     }
   })
@@ -69,17 +75,26 @@ function getRandomQuote() {
 }
 
 function getQuote() {
+  // Get a new random quote
   let randomQuote = getRandomQuote();
   let currentQuote = randomQuote.quote;
   let currentAuthor = randomQuote.author;
 
+  // Change text on page
   app.setState({
     quote: currentQuote,
     author: currentAuthor
   });
-
   document.getElementById('tweet-quote')
     .setAttribute('href', 'https://twitter.com/intent/tweet?hashtags=quotes&text=' +
       encodeURIComponent('"' + currentQuote + '" ' + currentAuthor));
+
+  // Change color
+  let color = Math.floor(Math.random() * colors.length);
+  app.setState({
+    color: colors[color]
+  });
+  document.body.style.backgroundColor = colors[color];
+  document.body.style.color = colors[color];
 
 }

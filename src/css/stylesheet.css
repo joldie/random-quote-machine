@@ -3661,8 +3661,8 @@ div {
   position: relative; }
 
 body {
-  background-color: #333;
-  color: #333;
+  background-color: #009688;
+  color: #009688;
   font-family: "Merriweather", serif;
   font-weight: 400;
   display: flex;
@@ -3670,16 +3670,19 @@ body {
   align-items: center;
   height: 100vh; }
 
+#root {
+  width: 90%;
+  max-width: 500px; }
+
 #quote-box {
   border-radius: 3px;
   position: relative;
-  width: 450px;
+  width: 100%;
   padding: 40px 50px;
   display: table;
   background-color: #fff; }
   #quote-box .quote-text {
     text-align: center;
-    width: 450px;
     height: auto;
     clear: both;
     font-weight: 500;
@@ -3688,14 +3691,12 @@ body {
       font-size: 1.0em;
       margin-right: 0.4em; }
   #quote-box .quote-author {
-    width: 450px;
     height: auto;
     clear: both;
     padding-top: 20px;
     font-size: 1em;
     text-align: right; }
   #quote-box .buttons {
-    width: 450px;
     margin: auto;
     display: block; }
     #quote-box .buttons .button {
@@ -3703,7 +3704,7 @@ body {
       border: none;
       border-radius: 3px;
       color: #fff;
-      background-color: #333;
+      background-color: #009688;
       outline: none;
       font-size: 0.85em;
       padding: 8px 18px 6px 18px;
@@ -3724,7 +3725,6 @@ body {
         float: right; }
 
 footer {
-  width: 450px;
   text-align: center;
   display: block;
   margin: 15px auto 30px auto;
@@ -3734,3 +3734,7 @@ footer {
     font-weight: 500;
     text-decoration: none;
     color: #fff; }
+
+@media (max-width: 350px) {
+  body {
+    font-size: 80%; } }
