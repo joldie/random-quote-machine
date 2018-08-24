@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
 @import "./fontawesome/scss/fontawesome.scss";
 @import "./fontawesome/scss/solid.scss";
 @import "./fontawesome/scss/brands.scss";
-$fonts: Helvetica,
-sans-serif;
+$fonts: 'Merriweather',
+serif;
 $primary-color: #333;
 * {
   margin: 0;
@@ -15,7 +16,7 @@ div {
 }
 
 body {
-  background-color: blue;
+  background-color: $primary-color;
   color: $primary-color;
   font-family: $fonts;
   font-weight: 400;
@@ -61,7 +62,7 @@ body {
       border: none;
       border-radius: 3px;
       color: #fff;
-      background-color: #333;
+      background-color: $primary-color;
       outline: none;
       font-size: 0.85em;
       padding: 8px 18px 6px 18px;
