@@ -10,7 +10,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      quote: "Click the button, get a better quote",
+      quote: "Click the button, get a better quote.",
       author: "joldie",
       color: '#009688'
     }
@@ -28,20 +28,24 @@ class App extends Component {
       backgroundColor: this.state.color
     };
 
+    let textColorStyle = {
+      color: this.state.color
+    };
+
     return (
       <div id="wrapper">
         <div id="quote-box">
-          <div className="quote-text">
+          <div className="quote-text fade-transition" style={textColorStyle}>
             <i className="fa fa-quote-left"> </i><span id="text">{this.state.quote}</span>
           </div>
-          <div className="quote-author">
+          <div className="quote-author fade-transition" style={textColorStyle}>
             - <span id="author">{this.state.author}</span>
           </div>
           <div className="buttons">
-            <a className="button" id="tweet-quote" title="Tweet this quote" target="_blank" style={bgColorStyle}>
+            <a className="button fade-transition" id="tweet-quote" title="Tweet this quote" target="_blank" style={bgColorStyle}>
               <i className="fab fa-twitter"></i>
             </a>
-            <button className="button" id="new-quote" onClick={this.displayNewQoute} style={bgColorStyle}>New quote</button>
+            <button className="button fade-transition" id="new-quote" onClick={this.displayNewQoute} style={bgColorStyle}>New quote</button>
           </div>
         </div>
         <footer>

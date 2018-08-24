@@ -3668,7 +3668,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; }
+  height: 100vh;
+  transition: all 1s ease-in-out; }
 
 #root {
   width: 90%;
@@ -3724,6 +3725,9 @@ body {
       #quote-box .buttons .button#new-quote {
         float: right; }
 
+.fade-transition {
+  transition: all 1s ease-in-out; }
+
 footer {
   text-align: center;
   display: block;
@@ -3735,6 +3739,8 @@ footer {
     text-decoration: none;
     color: #fff; }
 
-@media (max-width: 350px) {
+@media (max-width: 500px) {
   body {
-    font-size: 80%; } }
+    font-size: 90%;
+    align-items: flex-start;
+    padding-top: 5%; } }
